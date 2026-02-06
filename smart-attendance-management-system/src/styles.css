@@ -1,0 +1,180 @@
+/* ========= ULTRA-CLEAR MODERN UI (Deep Midnight Edition) ========= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* High-Contrast Palette */
+  --bg-deep: #05070a;           /* Near black for maximum pop */
+  --bg-surface: #0f172a;        /* Deep navy for depth */
+  
+  /* Glass Surfaces - High Clarity */
+  --card-glass: rgba(30, 41, 59, 0.4);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-hover: rgba(51, 65, 85, 0.7);
+
+  /* TYPOGRAPHY FIX - No more fading */
+  --text-main: #ffffff;         /* Pure white for all titles */
+  --text-dim: #94a3b8;          /* Crisp slate-blue for descriptions */
+  --text-muted: #64748b;        /* Subtle labels */
+
+  /* Vibrant Accents */
+  --accent: #8b5cf6;            /* Electric Violet */
+  --accent-glow: rgba(139, 92, 246, 0.4);
+  --success: #10b981;           /* Emerald Green */
+  --danger: #ef4444;
+
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  --r-xl: 24px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============== Global Resets =============== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--bg-deep);
+  /* Mesh Gradient - Adds color without making it look "grey" */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+    linear-gradient(180deg, var(--bg-surface), var(--bg-deep));
+  color: var(--text-dim);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =============== Auth & Dashboard Shell =============== */
+.auth-wrap, .dash {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shell { width: 100%; max-width: 1100px; margin: 0 auto; }
+
+/* =============== Clear Navigation (Topbar) =============== */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 32px;
+  background: var(--card-glass);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 32px;
+}
+
+.topbar .left h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  background: linear-gradient(to right, #ffffff, var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.topbar .left p { color: var(--text-dim); margin-top: 4px; font-weight: 500; }
+
+/* =============== Grid & High-Visibility Cards =============== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--card-glass);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(16px);
+  border-radius: var(--r-xl);
+  padding: 30px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  background: var(--card-hover);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.card .icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--accent);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.card h3 { color: var(--text-main); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+.card p { color: var(--text-dim); font-size: 14.5px; }
+
+/* =============== Buttons & Badges =============== */
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+.btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 15px 30px var(--accent-glow); }
+
+.btn2 {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn2:hover { background: rgba(255, 255, 255, 0.15); }
+
+.badge {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--success);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* =============== Inputs =============== */
+.input {
+  width: 100%;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  color: white;
+  transition: var(--transition);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
